@@ -1,0 +1,184 @@
+.grid-basics-container {
+    width: 600px;
+    margin: 10px auto;
+    background-color: rgb(74, 74, 168);
+
+    display: grid; // Temel 1. ana containera display:grid vererek bir grid tamplate oluşumunu sağlar hale getiriyoruz.
+    grid-template-columns: 150px 150px 150px; // Temel 2.Sonra grid-template-columns ve grid-template-rows propertyleri ile column ve rowlarımızı oluşturuyoruz.
+    grid-template-rows: 50px 50px; // Temel 2 cont.
+    height: 140px;
+    // grid-column-gap: 25px;
+    // grid-row-gap: 5px;
+    grid-gap: 20px; // Yukarıdaki kodun aynısını tek satırda hallediyor.
+
+    /**
+    * Grid ile birlikte geen fonksiyonlardan birisi de --> repeat()
+    * Tekrar eden şeyler için ideal
+    * column ve row tanımlarında kullanılabilir
+    * repeat(3, 150px);
+    */
+
+    /**
+    * fr(fraction): Bu birim css grid ile birlikte geldi. Kullanılabilinir alanı ifade ediyor.
+    * Örnek: 900px lik bir alanımız olsun
+    * İçindeki itemları fr kullanarak sığdırmak istiyorsak
+    * -> grid-template-columns: 1fr 2fr 3fr;   ->> total genişliği fr değerine göre sığdırıyor. Toplam genişliği düşünüp px hesabı yaparak itemlara ona göre değerler vermeye gerek kalmıyor.
+    * -> grid-template-columns: 1fr 2fr 50%;
+    */
+    .item-1 {
+        background-color: #581b45;
+    }
+    .item-2 {
+        background-color: #900c3f;
+    }
+    .item-3 {
+        background-color: #c70039;
+    }
+    .item-4 {
+        background-color: #ff5733;
+    }
+    .item-5 {
+        background-color: #ffc30f;
+    }
+    .item-6 {
+        background-color: #ffeead;
+    }
+}
+
+.grid-child-elements-positions-container {
+    width: 600px;
+    margin: 10px auto;
+    background-color: rgb(74, 74, 168);
+
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(2, 150px);
+    height: 340px;
+    grid-gap: 20px;
+
+    /**
+    * Html structure’ını nasıl yaparsak yapalım grid içindeki itemlerı istediğimiz herhangi bir yere konumlandırabiliriz.
+    * Bilinmesi gereken en önemli şey, grid’in tanımladığımız sütundan bir adet daha fazla ayraca sahip olması.
+    *   1   2
+    * 1 ----
+    *  | C |
+    * 2 ----
+    * grid-column-start ve grid-column-end ile column değerlerini girip farklı columna çekebiliriz.
+    * grid-column yazarak start ve end değerlerini verebiliriz. (row için de aynı mantık)
+    * grid-column: column-start / column-end
+    * grid-row: row-start / row-end
+    * grid-area: row-start / column-start / row-end / column-end (Tek satırda)
+    *
+    * grid-column: 2 / -1  -> 2.sütundan son sütuna kadar olan alanı kapla
+    * grid-column: 3 ->  3.sütundan başla
+    * grid-column: 3 / 5 -> 3.sütundan başla ve 4. sütunda bitir
+    * grid-column: span 3 -> 3. sütuna kadarki alanı kapla
+    *
+    * Örnek olarak 1 numaralı itemı sağ alt köşeye çekiyoruz.
+    */
+    .item-1 {
+        background-color: #581b45;
+        // grid-column-start: 3;
+        // grid-column-end: 4;
+        grid-column: 3/4;
+
+        // grid-row-start: 2;
+        // grid-row-end: 3;
+        grid-row: 2/3;
+
+        // grid-area: 2/ 3 / 3 / 4;
+    }
+    .item-2 {
+        background-color: #900c3f;
+    }
+    .item-3 {
+        background-color: #c70039;
+    }
+    .item-4 {
+        background-color: #ff5733;
+    }
+    .item-5 {
+        background-color: #ffc30f;
+    }
+    .item-6 {
+        background-color: #ffeead;
+    }
+}
+
+.grid-spanning-container {
+    margin-top: 10px;
+    width: 600px;
+    margin: 10px auto;
+    background-color: rgb(74, 74, 168);
+
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(2, 150px);
+    height: 340px;
+    grid-gap: 20px;
+
+    .item-1 {
+        background-color: #581b45;
+        grid-column: 3/4;
+        grid-row: 2/3;
+    }
+
+    /*Item 2 Position*/
+    .item-2 {
+        background-color: #000c3f;
+
+        //grid-column: 1/4;
+        //grid-column: 1/ -1;
+        grid-column: span 3;
+    }
+    /*Item 3 Position*/
+    .item-3 {
+        background-color: #c70039;
+
+        //grid-row: 2/4;
+        grid-row: span 2;
+    }
+    .item-4 {
+        background-color: #ff5733;
+    }
+    .item-5 {
+        background-color: #ffc30f;
+    }
+    .item-6 {
+        background-color: #ffeead;
+    }
+}
+
+.naming-grid-areas-container {
+    width: 800px;
+    margin: 25px auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 170px 150px 130px;
+    grid-template-areas:
+        "header header header" //temel yapı oluşturmanın dışında ekstra bir kod ekleyeceğiz. O da grid-template-areas .
+        "aside main main"
+        "aside item-1 item-2"; //Her column ve row için isimleri verdikten sonra birer birer bu isimleri de bulunan alanlara ekliyoruz.
+    grid-gap: 20px;
+
+    > * {
+        background-color: #f77b55;
+    }
+
+    .header {
+        grid-area: header;
+    }
+    .aside {
+        grid-area: aside;
+    }
+    .main {
+        grid-area: main;
+    }
+    .item-1 {
+        grid-area: item-1;
+    }
+    .item-2 {
+        grid-area: item-2;
+    }
+}
