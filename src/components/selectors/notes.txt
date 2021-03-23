@@ -1,0 +1,35 @@
+CSS SEÇİCİLER (SELECTOR )’İN ÇEŞİTLERİ
+1.Genel Seçici (*) ler, 
+    tüm Html elemanlarını seçmemize olanak verir. Seçmeyi “*” karakteri ile yaparız.
+2.Element Seçici (Element), 
+    seçtiğimiz Html Elementini seçer. 
+    Yani seçmek istediğimiz elementi yazarız ve seçmiş oluruz.Örneğin <h1> elementini seçmek için “h1” yazmak gibi.
+3.ID Seçici (#ID), 
+    Html elementine yazdığımız ID ile seçeriz. 
+    Elementlerin “id” attribute değerine bir isim veririz ve o isimi CSS de kullanırız.
+4.Class Seçici (.class), 
+    Html elementine yazdığımız class ile seçeriz. 
+    Elementlerin “class” attribute değerine bir isim veririz ve o isimi CSS de kullanırız. Birden fazla elemente aynı class ı verebiliriz.
+5.Child Seçici (Element>Element), 
+    Html etiketinin altındaki (çocuk) elementi seçmek için.
+6.Descendant Seçici(Element Element), 
+    Html etiketinin altındaki (torun düzeyinde) descendant elementi seçmek için.
+7.Genel Kardeş ( Sibling ) Seçici (Element ~ Element), 
+    Html etiketinin belirtiğimiz sibling etiketini seçer.
+8.Bitişik Sibling (Kardeş) Seçici (Element + Element), 
+    Html etiketinin belirtiğimiz bitişik sibling etiketini seçer.
+9.Çoklu ( Multiple ) Seçici (Element, Element), 
+    Bir veya daha fazla Html etiketlerini seçebiliriz.
+10.Attribute ( Özellik)Seçici (Element[özellik-adı]), 
+    Html Etiketini özellik değeri ile seçmemize olanak veriyor.
+11.CSS Sözde Sınıf (Pseudo Class) Seçiciler, 
+    sınıf olmayıp sınıf gibi davranan ve seçim yapmamızı sağlayan yapılardır.
+12.CSS Sözde Element(Pseudo Element) Seçiciler, 
+    Element olmayıp element gibi davranan ve seçim yapmamızı sağlayan yapılardır.
+
+
+CSS seçicilerin öncelik sırası:
+    1.Satır içi (inline) CSS kodları
+    2.“id” Seçicisi ile CSS kodları
+    3.“class” Seçicisi ile CSS kodları
+    4.“etiket” seçicisi ile CSS kodları
