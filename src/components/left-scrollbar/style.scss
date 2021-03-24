@@ -1,0 +1,14 @@
+/**
+* scrollu sola alabilmek için containerı rtl, içinki divi de ltr direction'da yapmak yeterli
+*/
+.list_container {
+    direction: rtl;
+    overflow: auto;
+    height: 100px;
+    width: 250px;
+    background-color: aquamarine;
+
+    .item_direction {
+        direction: ltr;
+    }
+}
